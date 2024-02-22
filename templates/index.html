@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="static/img/vet.png" type="image/png">
+
+    <title>Tareas Domotes | Inicio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Font+Name&display=swap">
+
+
+
+
+    <!-- Estos son los estilos del index -->
+
+
+    <!-- Este es el estilo principal -->
+
+    <style 1>
+
+        body {
+            background-image: url("{{ url_for('static', filename='') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+        }
+
+        header {
+            background-color: #bce0ba;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 50px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+       
+        .navbar-logo img {
+            height: 50px; 
+        }
+
+        .navbar-buttons button {
+            margin-left: 10px; /* Espaciado entre los botones */
+        }
+
+       /* Estilos para la lista de tareas */
+        #lista-tareas {
+            list-style-type: none; /* Eliminar los marcadores de lista */
+            padding: 0;
+        }
+
+        #lista-tareas li {
+            margin-bottom: 5px; /* Espacio entre cada tarea */
+            background-color: #f9f9f9; /* Color de fondo de cada tarea */
+            padding: 10px; /* Espaciado interno de cada tarea */
+            border-radius: 5px; /* Bordes redondeados */
+        }
+
+        #lista-tareas li:hover {
+            background-color: #e9e9e9; /* Color de fondo al pasar el mouse sobre la tarea */
+        }
+       
+    </style>
+
+    <!-- Hasta aquí llega el estilo principal -->
+
+
+    
+
+</head>
+
+<body onload="checkLogin()">
+
+    <header>
+        <div class="navbar">
+            <div class="navbar-logo">
+                <img class="logo" src="{{ url_for('static', filename='img/domotes.png') }}" alt="Logo">
+            </div>
+            <div class="navbar-title">
+                <h1>Tareas Domotes</h1>
+            </div>
+            <div class="navbar-buttons">
+                <button class="btn btn-primary rounded-pill me-2" onclick="window.location.href = 'inicio'">Inicio</button>
+
+                <div class="navbar-buttons">
+                   
+                    <button class="btn btn-primary rounded-pill" onclick="logout()">Cerrar sesión</button>
+                </div>
+
+            
+            </div>
+        </div>
+        
+    </header>
+
+    <main>
+        <h2>Lista de Tareas</h2>
+        <ul id="lista-tareas"></ul>
+        <form id="form-tarea">
+            <input type="text" id="descripcion" placeholder="Descripción de la tarea">
+            <button type="submit">Agregar Tarea</button>
+        </form>
+    </main>
+    
+
+    
+    <!-- Estos son los JS del index -->
+
+
+    <!-- Este es el Js del Navbar -->
+
+
+    <script>
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    </script>
+
+    <!-- Hasta aquí llegan los JS del index -->
+
+    <!--Este es el JS del Login-->
+
+    <script>
+
+
+        function login() {
+            // Realizar el proceso de inicio de sesión
+            
+            // Limpiar los campos de inicio de sesión
+  document.getElementById("loginForm").reset();
+  
+  // Redireccionar al usuario al index
+  window.location.href = "/index.html"; 
+}
+
+
+function checkLogin() {
+    if (localStorage.getItem("isLoggedIn")) {
+      window.location.href = "index.html"; // Redirigir a la página index
+    }
+    else {
+      // Agregar una nueva entrada al historial sin cambiar la URL
+      history.replaceState(null, null, window.location.href);
+      history.pushState(null, null, window.location.href);
+      window.onpopstate = function(event) {
+        history.go(1);
+      };
+    }
+  }
+
+  function login() {
+    // Lógica de inicio de sesión aquí
+    localStorage.setItem("isLoggedIn", true);
+  }
+
+
+        function logout() {
+            // Redireccionar al usuario a una página diferente
+            window.location.href = "/logout";
+
+            // Reemplazar la URL actual en el historial del navegador
+         
+            var newUrl = window.location.origin + "/login"; 
+            window.history.pushState({}, '', newUrl);
+
+              // Invalidar el historial
+      history.replaceState(null, document.title, window.location.href);
+    }
+
+    </script>
+
+
+    <script src="app.js"></script>
+
+    <!-- Hasta aquí llegan los codigos JS del index -->
+
+</body>
+
+</html>
