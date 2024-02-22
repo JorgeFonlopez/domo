@@ -1,65 +1,113 @@
 
-/* Aquí empieza el CSS de la pestaña principal, donde aparece el logo */
-        .top {
-            background-image: url('../img/');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            padding: 20px;
-            margin: 0%;
-          }
-        
-          .top-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-          }
-          
-          .top-logo {
-            width: 400px;
-            height: 400px;
-            margin-bottom: 20px;
-          }
-        
-        h1 {
-        font-size: 24px;
-        margin-top: 20px;
-        color: #fffefe;
-        }
-        
-        .scroll {
-        width: 40px;
-        height: 40px;
-        margin-top: 20px;
-        }
-        
-        .animate__shakeY {
-        animation: shakeY 5s infinite;
-        }
-        
-        @keyframes shakeY {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        10%,
-        30%,
-        50%,
-        70%,
-        90% {
-          transform: translateY(-5px);
-        }
-        20%,
-        40%,
-        60%,
-        80% {
-          transform: translateY(5px);
-        }
 
-
+    body {
+        background-color: cornsilk;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px;
     }
 
-    /* Aquí termina el estilo de la pestaña principal */
+    header {
+        background-color: #bce0ba;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 50px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+   
+    .navbar-logo img {
+        height: 50px; 
+    }
+
+    .navbar-buttons button {
+        margin-left: 10px; 
+    }
+
+
+/* Estilos para el Navbar */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #bce0ba;
+    padding: 5px 20px; /* Reducir el padding vertical y horizontal */
+    border-radius: 25px; /* Reducir el radio de los bordes */
+}
+
+.navbar-logo img {
+    height: 40px; /* Reducir el tamaño del logo */
+}
+
+.navbar-buttons button {
+    margin-left: 10px; /* Espaciado entre los botones */
+}
+
+.navbar-brand {
+    color: #333; /* Color del texto */
+    font-size: 1.2rem; /* Tamaño de la fuente reducido */
+    font-weight: bold; /* Peso de la fuente */
+    text-decoration: none; /* Quitar subrayado */
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style: none; /* Eliminar los marcadores de lista */
+}
+
+.nav-item {
+    margin-right: 5px; /* Espaciado entre los elementos de la lista reducido */
+}
+
+.nav-link {
+    color: #333; /* Color del texto */
+    text-decoration: none; /* Quitar subrayado */
+    padding: 0.25rem 0.5rem; /* Espaciado interno reducido */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+.nav-link:hover {
+    background-color: #d7ecd1; /* Color de fondo al pasar el mouse */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Quitar borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 0.25rem 0.5rem; /* Espaciado interno reducido */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+
+/* Estilos para el formulario */
+#form-tarea {
+    margin-bottom: 20px;
+}
+#lista-tareas {
+    list-style-type: none;
+    padding: 0;
+}
+.tarea {
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+.tarea:hover {
+    background-color: #e9e9e9;
+}
+

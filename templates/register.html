@@ -1,18 +1,18 @@
 {% extends 'layoutlogin.html' %}
 
-{% block title %}Baño Huellas | Registro{% endblock %}
+{% block title %}Tareas Domotes | Registro{% endblock %}
 
 {% block content %}
 
 <script>
-    // Función para invalidar el historial de navegación
+    // Esta es la función para invalidar el historial de navegación
     function invalidateHistory() {
         if (typeof window !== 'undefined') {
             window.history.replaceState(null, null, window.location.href);
         }
     }
 
-    // Llamar a la función para invalidar el historial al cargar la página
+    // Con esto llamo a la función para invalidar el historial al cargar la página
     window.onload = invalidateHistory;
 </script>
 
@@ -69,7 +69,7 @@
   {% endif %}
 {% endwith %}
 
-<!-- Modal de registro exitoso -->
+<!-- Modal para registro exitoso -->
 {% with messages = get_flashed_messages(category_filter=['success']) %}
   {% if messages %}
     <div class="alert alert-success" role="alert">

@@ -28,22 +28,18 @@ class MySQLDatabase:
             )
         '''
 
-       
-
-
         # Define la sentencia SQL para crear la tabla works
         create_works_table_query = '''
             CREATE TABLE IF NOT EXISTS works (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 user_id INT NOT NULL,
                 work_name VARCHAR(255) NOT NULL,
+                status VARCHAR(20) NOT NULL DEFAULT 'pendiente',
                 registration_date DATETIME NOT NULL,
                 FOREIGN KEY (user_id) REFERENCES users(id)
             )
         '''
-        
       
-
         # Ejecuta las sentencias SQL para crear las tablas
         cursor.execute(create_users_table_query)
         
